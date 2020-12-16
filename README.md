@@ -54,6 +54,7 @@ https://developers.facebook.com/docs/graph-api/
 
 
 #Sorting Row Length - part 1 of 3 
+
 #this is to ensure the first line of the results will and on the third row of my google sheet
 
     added_value_to_row = 3 
@@ -108,6 +109,7 @@ https://developers.facebook.com/docs/graph-api/
 
 
  #Data from yesterday campaign performance 
+ 
  #I really just need this, for amount spent yesterday/daily budget column on the google sheet
 
         var = 'yesterday'
@@ -131,7 +133,8 @@ https://developers.facebook.com/docs/graph-api/
         print('Now have yesterframe')     #I am printing various lines, so if something breaks - I can trace the location of the bug quickly
 
 
-#Now to loop across the various parameters (data from last 3 days, last 7 days, etc) - 
+#Now to loop across the various parameters (data from last 3 days, last 7 days, etc)
+
 #First - defining my variables
 
         three_day_details = 'last_3d'
@@ -240,6 +243,7 @@ https://developers.facebook.com/docs/graph-api/
     
     
 #Finally, have to prepare the final dataframe that will be sent over to google sheets
+
 #I only want to inlude data campaigns if they have data for yesterday. Campaigns which don't meet this criteria will have been turned off already, and are therefore of no interest
 
     
@@ -281,7 +285,8 @@ https://developers.facebook.com/docs/graph-api/
         df_to_send = frame_to_go 
         my_list = df_to_send.values.tolist()
     
- #sorting Row values - part 3
+ #sorting row length - part 3
+ 
  #this ensures that Client 2 data will not land on Client 1 data, on the google sheet
  
         added_value_to_row = added_value_to_row + len(df_to_send)     
