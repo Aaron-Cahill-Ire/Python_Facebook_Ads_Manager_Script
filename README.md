@@ -48,6 +48,8 @@ https://developers.facebook.com/docs/graph-api/
     from facebook_business.adobjects.user import User
 
 
+
+
 #Determining which clients to analyse (using variables from above)
 
     Clients = [[Client_1], [Client_2]]
@@ -107,7 +109,7 @@ https://developers.facebook.com/docs/graph-api/
         print('         ')
 
 
- #Data from yesterday campaign performance 
+ #Data from yesterday's campaign performance 
 
         var = 'yesterday'
         f_par = {'date_preset':var, 'level':'adset', 'time_increment':'50', 'fields':['campaign_name', 'spend', 'adset_name', 'ad_name', 'purchase_roas']}
@@ -204,7 +206,7 @@ https://developers.facebook.com/docs/graph-api/
 
             k_frame['x_dayROAS'] = value_column_as_list   #have added the new column new_ROAS
 
-            print('now have final version of three frame')
+            print('now have final version of data frame')
             print('        ')
 
         
@@ -246,9 +248,9 @@ https://developers.facebook.com/docs/graph-api/
 #My final dataframe will contain data these campaigns, over the last 3 days, 7 days, etc
 
     
-        merged_thirty_four = thirty_frame_final.merge(fourteen_frame_final, left_on=['campaign_name', 'adset_name'], right_on=['campaign_name', 'adset_name'])
+        merged_thirty_four = thirty_frame_final.merge(fourteen_frame_final, left_on=['campaign_name', 'adset_name'], right_on=['campaign_name','adset_name'])
         merg_thir_four_sev = merged_thirty_four.merge(sev_frame_final, left_on=['campaign_name', 'adset_name'], right_on=['campaign_name', 'adset_name'])
-        merg_thir_four_sev_thir = merg_thir_four_sev.merge(three_frame_final, left_on=['campaign_name', 'adset_name'], right_on=['campaign_name', 'adset_name'])
+        merg_thir_four_sev_thir = merg_thir_four_sev.merge(three_frame_final, left_on=['campaign_name', 'adset_name'], right_on=['campaign_name','adset_name'])
         merg_thir_four_sev_thir_yest = merg_thir_four_sev_thir.merge(yester_frame, left_on=['campaign_name', 'adset_name'], right_on=['campaign_name', 'adset_name'])
 
 
