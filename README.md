@@ -53,7 +53,7 @@ https://developers.facebook.com/docs/graph-api/
     Clients = [[Client_1], [Client_2]]
 
 
-#Sorting Row Length - part 1 of 3 
+#Sorting row Length - part 1 of 3 
 
 #this is to ensure the first line of the results will and on the third row of my google sheet
 
@@ -72,7 +72,8 @@ https://developers.facebook.com/docs/graph-api/
         my_first_row_number = i[0][4] + added_value_to_row                             
         my_second_row_number = i[0][5] + added_value_to_row     
 
-    
+#Initialising required packages
+
         Ad_account = AdAccount(my_ad_account) 
         print('Facebook Business api is now re-installed')
         print('     ')
@@ -92,7 +93,7 @@ https://developers.facebook.com/docs/graph-api/
     
         print('the variable c, with various id numbers of all prior campaigns, now complete')
 
-#turning it into a dataframe, and taking the column id
+#turning this list into a dataframe, and taking the column id
 
         c_dataframe = pd.DataFrame(c)
         id_set = c_dataframe['id']      
@@ -211,7 +212,7 @@ https://developers.facebook.com/docs/graph-api/
             print('        ')
 
         
-#As the loop iterates through the values of last 3 days, last 7 days, etc, k_frame will represent the respective results of each
+#As the loop iterates through the values of last 3 days, last 7 days, etc, a dataframe representing the respective results of each will be produced
     
             if increasing_value == 0:
                 three_frame_final = k_frame
@@ -244,7 +245,8 @@ https://developers.facebook.com/docs/graph-api/
     
 #Finally, have to prepare the final dataframe that will be sent over to google sheets
 
-#I only want to inlude data campaigns if they have data for yesterday. Campaigns which don't meet this criteria will have been turned off already, and are therefore of no interest
+#I only want to inlude data campaigns if they have data for yesterday. Campaigns which don't meet this criteria will have been turned off already, and are therefore of no interest 
+#My final dataframe will contain data these campaigns, over the last 3 days, 7 days, etc
 
     
         merged_thirty_four = thirty_frame_final.merge(fourteen_frame_final, left_on=['campaign_name', 'adset_name'], right_on=['campaign_name', 'adset_name'])
