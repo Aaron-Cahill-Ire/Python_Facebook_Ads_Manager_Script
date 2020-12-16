@@ -53,7 +53,8 @@ https://developers.facebook.com/docs/graph-api/
     Clients = [[Client_1], [Client_2]]
 
 
-#SORTING ROW LENGTH - PART 1 OF 3 #this is to ensure the first line of the results will and on the third row of my google sheet
+#Sorting Row Length - part 1 of 3 
+#this is to ensure the first line of the results will and on the third row of my google sheet
 
     added_value_to_row = 3 
 
@@ -65,7 +66,7 @@ https://developers.facebook.com/docs/graph-api/
         my_app_secret = i[0][2]
         my_ad_account = i[0][3]
     
-#SORTING ROW LENGTH - PART 2 OF 3
+#Sorting row length - part 2 of 3
     
         my_first_row_number = i[0][4] + added_value_to_row                             
         my_second_row_number = i[0][5] + added_value_to_row     
@@ -106,7 +107,8 @@ https://developers.facebook.com/docs/graph-api/
         print('         ')
 
 
- #Data from yesterday campaign performance #I really just need this, for amount spent yesterday/daily budget column on the google sheet
+ #Data from yesterday campaign performance 
+ #I really just need this, for amount spent yesterday/daily budget column on the google sheet
 
         var = 'yesterday'
         f_par = {'date_preset':var, 'level':'adset', 'time_increment':'50', 'fields':['campaign_name', 'spend', 'adset_name', 'ad_name', 'purchase_roas']}
@@ -129,8 +131,7 @@ https://developers.facebook.com/docs/graph-api/
         print('Now have yesterframe')     #I am printing various lines, so if something breaks - I can trace the location of the bug quickly
 
 
-
-#Now to loop across the various parameters - 
+#Now to loop across the various parameters (data from last 3 days, last 7 days, etc) - 
 #First - defining my variables
 
         three_day_details = 'last_3d'
@@ -280,13 +281,12 @@ https://developers.facebook.com/docs/graph-api/
         df_to_send = frame_to_go 
         my_list = df_to_send.values.tolist()
     
- #SORTING ROW VALUES OUT HERE - PART 3
+ #sorting Row values - part 3
  #this ensures that Client 2 data will not land on Client 1 data, on the google sheet
  
         added_value_to_row = added_value_to_row + len(df_to_send)     
     
     
-
 #And now to actually send the data!!
     
         for i in my_list:  #my list has all the data, that I want to put onto the spreadsheet, for any given client
