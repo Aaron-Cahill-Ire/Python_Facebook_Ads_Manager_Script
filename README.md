@@ -33,7 +33,7 @@ https://developers.facebook.com/docs/graph-api/
     import pandas as pd
     import numpy as np
 
-#Safety check
+#I am printing text throughout the code, such that if something breaks, I can trace it's source more quickly
 
     print('Access_token, App id, and App secret, now set')
     print('     ')
@@ -53,13 +53,11 @@ https://developers.facebook.com/docs/graph-api/
     Clients = [[Client_1], [Client_2]]
 
 
-#Sorting row Length - part 1 of 3 
-
-#this is to ensure the first line of the results will and on the third row of my google sheet
+#Sorting row Length - part 1 of 3 (this is to ensure the first line of the results will land on the third row of my google sheet)
 
     added_value_to_row = 3 
 
-#the code below will iterate, for each client mentioned within the Clients variable
+#I am now setting up a loop, such that the code below will iterate for each client mentioned within the Clients variable
 
     for i in Clients:  
         my_access_token = i[0][0]
@@ -110,8 +108,6 @@ https://developers.facebook.com/docs/graph-api/
 
 
  #Data from yesterday campaign performance 
- 
- #I really just need this, for amount spent yesterday/daily budget column on the google sheet
 
         var = 'yesterday'
         f_par = {'date_preset':var, 'level':'adset', 'time_increment':'50', 'fields':['campaign_name', 'spend', 'adset_name', 'ad_name', 'purchase_roas']}
@@ -131,10 +127,10 @@ https://developers.facebook.com/docs/graph-api/
     
         yester_frame = e_frame
 
-        print('Now have yesterframe')     #I am printing various lines, so if something breaks - I can trace the location of the bug quickly
+        print('Now have yesterframe')     
 
 
-#Now to loop across the various parameters (data from last 3 days, last 7 days, etc)
+#Now to create dataframes, pulling data from the last three days, all the way to the last thirty days. Because the treatment of these elements are the same, I will also operate on a loop
 
 #First - defining my variables
 
@@ -245,7 +241,8 @@ https://developers.facebook.com/docs/graph-api/
     
 #Finally, have to prepare the final dataframe that will be sent over to google sheets
 
-#I only want to inlude data campaigns if they have data for yesterday. Campaigns which don't meet this criteria will have been turned off already, and are therefore of no interest 
+#I only want to inlude data campaigns if they have data from yesterday. Campaigns which have no data from yesterday must already have been turned off. Thus, there aren't of any interest for the purposes of an Ad review. 
+
 #My final dataframe will contain data these campaigns, over the last 3 days, 7 days, etc
 
     
@@ -287,9 +284,7 @@ https://developers.facebook.com/docs/graph-api/
         df_to_send = frame_to_go 
         my_list = df_to_send.values.tolist()
     
- #sorting row length - part 3
- 
- #this ensures that Client 2 data will not land on Client 1 data, on the google sheet
+ #sorting row length - part 3 (this ensures that Client 2 data will not land on Client 1 data, on the google sheet)
  
         added_value_to_row = added_value_to_row + len(df_to_send)     
     
