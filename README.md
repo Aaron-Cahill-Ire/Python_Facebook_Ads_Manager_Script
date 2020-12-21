@@ -98,7 +98,7 @@ https://developers.facebook.com/docs/graph-api/
         c_dataframe = pd.DataFrame(c)
         id_set = c_dataframe['id']      
 
-#now creating a list, with just the values of the id's - to be used later
+#I'm now creating a list, with just the values of the id's - to be used later
 
         my_list_for_use = []       
         for i in id_set:
@@ -243,7 +243,7 @@ https://developers.facebook.com/docs/graph-api/
     
 #Finally, I have to prepare the final dataframe that will be sent over to google sheets
 
-#I only want to include data campaigns if they have data from yesterday. Campaigns which have no data from yesterday must already have been turned off. Thus, there aren't of any interest for the purposes of an Ad review. 
+#I only want to include data campaigns if they have data from yesterday. Campaigns which have no data from yesterday must already have been turned off. Thus, they aren't of any interest for the purposes of an Ad review. 
 
 #My final dataframe will contain data these campaigns, over the last 3 days, 7 days, etc
 
@@ -286,7 +286,7 @@ https://developers.facebook.com/docs/graph-api/
         df_to_send = frame_to_go 
         my_list = df_to_send.values.tolist()
     
- #Sorting row length - part 3 (this ensures that Client 2 data will not land on Client 1 data, on the google sheet)
+#Sorting row length - part 3 (this ensures that Client 2 data will not land on Client 1 data, on the google sheet)
  
         added_value_to_row = added_value_to_row + len(df_to_send)     
     
