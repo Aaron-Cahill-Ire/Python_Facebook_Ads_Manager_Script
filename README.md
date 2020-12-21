@@ -243,7 +243,7 @@ https://developers.facebook.com/docs/graph-api/
     
 #Finally, I have to prepare the final dataframe that will be sent over to google sheets
 
-#I only want to inlude data campaigns if they have data from yesterday. Campaigns which have no data from yesterday must already have been turned off. Thus, there aren't of any interest for the purposes of an Ad review. 
+#I only want to include data campaigns if they have data from yesterday. Campaigns which have no data from yesterday must already have been turned off. Thus, there aren't of any interest for the purposes of an Ad review. 
 
 #My final dataframe will contain data these campaigns, over the last 3 days, 7 days, etc
 
