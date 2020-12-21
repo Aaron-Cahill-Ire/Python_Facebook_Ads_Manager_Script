@@ -93,12 +93,12 @@ https://developers.facebook.com/docs/graph-api/
     
         print('the variable c, with various id numbers of all prior campaigns, now complete')
 
-#turning this list into a dataframe, and taking the column id
+#Turning this list into a dataframe, and taking the column id
 
         c_dataframe = pd.DataFrame(c)
         id_set = c_dataframe['id']      
 
-#now creating a list, with just the values of the id's - to be used for later
+#now creating a list, with just the values of the id's - to be used later
 
         my_list_for_use = []       
         for i in id_set:
@@ -162,7 +162,7 @@ https://developers.facebook.com/docs/graph-api/
                 x = x + 1
 
     
-#the roas values do not come out in the correct form. Cleaning is therefore required
+#The roas values do not come out in the correct form. Cleaning is therefore required
  
             
             print('now starting the first part of cleaning')
@@ -241,7 +241,7 @@ https://developers.facebook.com/docs/graph-api/
 
     
     
-#Finally, have to prepare the final dataframe that will be sent over to google sheets
+#Finally, I have to prepare the final dataframe that will be sent over to google sheets
 
 #I only want to inlude data campaigns if they have data from yesterday. Campaigns which have no data from yesterday must already have been turned off. Thus, there aren't of any interest for the purposes of an Ad review. 
 
@@ -286,7 +286,7 @@ https://developers.facebook.com/docs/graph-api/
         df_to_send = frame_to_go 
         my_list = df_to_send.values.tolist()
     
- #sorting row length - part 3 (this ensures that Client 2 data will not land on Client 1 data, on the google sheet)
+ #Sorting row length - part 3 (this ensures that Client 2 data will not land on Client 1 data, on the google sheet)
  
         added_value_to_row = added_value_to_row + len(df_to_send)     
     
